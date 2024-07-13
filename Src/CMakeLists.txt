@@ -11,6 +11,12 @@ set(QRC_DIR "${RESOURCES_DIR}/Files")
 set(TRANSLATIONS_DIR "${RESOURCES_DIR}/Translations")
 
 find_package(Qt5 COMPONENTS REQUIRED ${QT_COMPONENTS} LinguistTools)
+if (Qt5Core_FOUND)
+    message(STATUS "Qt5Core_INCLUDE_DIRS: ${Qt5Core_INCLUDE_DIRS}")
+    message(STATUS "Qt5Core_LIBRARIES: ${Qt5Core_LIBRARIES}")
+else()
+    message(FATAL_ERROR "Qt5Core was not found.")
+endif()
 list_add_prefix(QT_LIBS "Qt5::" ${QT_COMPONENTS})
 
 # 扫描本地化翻译文件
@@ -73,3 +79,6 @@ target_link_libraries(${PROJECT_NAME} PUBLIC MainLibrary)
 if(ENABLE_TEST)
     add_subdirectory(${TEST_DIR})
 endif()
+
+# 确保程序定义后添加依赖关系
+copy_qt_platform_plugins("${CMAKE_BINARY_DIR}/Src")
