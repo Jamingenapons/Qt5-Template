@@ -11,7 +11,7 @@ set(QRC_DIR "${RESOURCES_DIR}/Files")
 set(TRANSLATIONS_DIR "${RESOURCES_DIR}/Translations")
 
 find_package(Qt5 COMPONENTS REQUIRED ${QT_COMPONENTS} LinguistTools)
-list_add_prefix(QT_LIBS "Qt::" ${QT_COMPONENTS})
+list_add_prefix(QT_LIBS "Qt5::" ${QT_COMPONENTS})
 
 # 扫描本地化翻译文件
 set(LOCALE_PREFIX "${PROJECT_NAME}")
@@ -41,7 +41,7 @@ foreach(item IN LISTS QRC_FILES)
     endif()
 endforeach()
 qt5_add_resources(RESOURCES_FILES ${SMALL_QRC_FILES})
-qt5_add_big_resources(BIG_RESOURCES_FILE ${BIG_QRC_FILES})
+# qt5_add_big_resources(BIG_RESOURCES_FILE ${BIG_QRC_FILES})
 
 # Target: 主程序
 list_add_prefix(SRC_EXPRESSIONS "${MAIN_DIR}/" "*.ui" "*.c" "*.cpp" "*.hpp" "*.cc")
