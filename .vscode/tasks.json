@@ -63,6 +63,17 @@
             ]
         },
         {
+            "label": "run-debug-execute",
+            "type": "process", //运行就不能选择shell执行了，要选择process
+            "options": {
+                "cwd": "${workspaceFolder}/build/Src" //没在.pro配置DESTDIR,会生成到build目录下面对应目录
+            },
+            "command": "HelloWorld.exe", //执行的exe名字，一般当前项目文件夹的名称，自定义可以写其他的
+            "dependsOn": [
+                "make-debug"
+            ]
+        },
+        {
             "label": "qmake-release",
             "type": "shell",
             "options": {
