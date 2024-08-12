@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<TS version="2.1" language="en_US">
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../Main/mainwindow.ui" line="14"/>
+        <location filename="../../Src/Main/mainwindow.ui" line="14"/>
         <source>MainWindow</source>
-        <translation type="unfinished">主窗口</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Main/mainwindow.ui" line="27"/>
+        <location filename="../../Src/Main/mainwindow.ui" line="27"/>
         <source>About Qt</source>
-        <translation type="unfinished">关于 Qt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Main/mainwindow.ui" line="40"/>
+        <location filename="../../Src/Main/mainwindow.ui" line="40"/>
         <source>Hello World</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Main/mainwindow.ui" line="58"/>
+        <location filename="../../Src/Main/mainwindow.ui" line="58"/>
         <source>Hello World, 0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Main/mainwindow.cpp" line="18"/>
+        <location filename="../../Src/Main/mainwindow.cpp" line="19"/>
         <source>Hello World, %1</source>
         <translation type="unfinished"></translation>
     </message>

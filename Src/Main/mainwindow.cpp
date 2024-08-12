@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include <QMessageBox>
+#include <qdebug.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->helloBtn, &QPushButton::clicked, this, [this] {
         static uint32_t count = 0;
         ui->helloLabel->setText(tr("Hello World, %1").arg(++count));
+        qInfo() << "Hello World, " << count;
     });
 }
 

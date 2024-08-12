@@ -4,11 +4,12 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(MAIN_DIR "${PROJECT_SOURCE_DIR}/Main")
+set(MAIN_DIR "${PROJECT_SOURCE_DIR}")
 set(TEST_DIR "${PROJECT_SOURCE_DIR}/Test")
-set(RESOURCES_DIR "${PROJECT_SOURCE_DIR}/Resources")
+set(RESOURCES_DIR "${PROJECT_SOURCE_DIR}/../Resources")
 set(QRC_DIR "${RESOURCES_DIR}/Files")
 set(TRANSLATIONS_DIR "${RESOURCES_DIR}/Translations")
+set(UTILS_DIR "${PROJECT_SOURCE_DIR}/Utils")
 
 find_package(Qt5 COMPONENTS REQUIRED ${QT_COMPONENTS} LinguistTools)
 if (Qt5Core_FOUND)
@@ -68,7 +69,7 @@ target_compile_definitions(MainLibrary PUBLIC -DLOCALE_PREFIX="${LOCALE_PREFIX}"
 target_compile_definitions(MainLibrary PUBLIC -DLOCALES_NAME_ARRAY=${LOCALES_NAME_ARRAY})
 
 # Target: 主程序入口
-if (WIN32 AND ${CMAKE_BUILD_TYPE} STREQUAL "Release")
+if (WIN32 AND CMAKE_BUILD_TYPE STREQUAL "Release")
     add_executable(${PROJECT_NAME} WIN32 EntryPoint.cpp ${RESOURCES_FILES} ${BIG_RESOURCES_FILE})
 else()
     add_executable(${PROJECT_NAME} EntryPoint.cpp ${RESOURCES_FILES} ${BIG_RESOURCES_FILE})
@@ -79,6 +80,11 @@ target_link_libraries(${PROJECT_NAME} PUBLIC MainLibrary)
 if(ENABLE_TEST)
     add_subdirectory(${TEST_DIR})
 endif()
+
+#add_subdirectory(core)
+#add_subdirectory(gui)
+#add_subdirectory(services)
+add_subdirectory(utils)
 
 # 确保程序定义后添加依赖关系
 copy_qt_platform_plugins("${CMAKE_BINARY_DIR}/Src")
